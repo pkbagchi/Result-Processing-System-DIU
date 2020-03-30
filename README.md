@@ -1,1 +1,1 @@
-# result-management-system-DIU-
+# result-management-system-DIU
