@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="{% static 'sass/main.css' %}" rel="stylesheet" />
+</head>
+<body >
+    <div class="content">
+        <a href="{% url 'home' %}"><img class="content__close" src="{% static 'images/close.png' %}" alt=""/></a>
+        {% for info in stdquery %}
+        <div class="content__info">
+          <h2 class="content__info__heading">Student Info</h2>
+          <ul class="content__info__list">
+            <li class="content__info__item">
+              <h3 class="content__info__title">Program</h3>
+              <p class="content__info__data">
+                {{info.program}}
+              </p>
+            </li>
+            <li class="content__info__item">
+              <h3 class="content__info__title">Name of Student</h3>
+              <p class="content__info__data">
+               {{info.name}}
+              </p>
+            </li>
+            <li class="content__info__item">
+              <h3 class="content__info__title">Student Id</h3>
+              <p class="content__info__data">
+                {{info.stid}}
+              </p>
+            </li>
+            <li class="content__info__item">
+              <h3 class="content__info__title">Enrollment</h3>
+              <p class="content__info__data">
+                {{info.enrollment}}
+              </p>
+            </li>
+            <li class="content__info__item">
+              <h3 class="content__info__title">Batch</h3>
+              <p class="content__info__data">
+                {{info.batch}}
+              </p>
+            </li>
+          </ul>
+        </div>
+        {% endfor %}
+        <div class="content__result">
+          <h2 class="content__result__heading">Academic Result of : <span>{{sel_semester}}</span></h2>
+          <table class="content__result__table">
+            
+            <thead class="content__result__table__head">
+              <tr>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+                <th>Grade Point</th>
+              </tr>
+            </thead>
+            
+            <tbody class="content__result__table__body">
+              {% for course_code, course_title, Credit, Grade, Grade_Point in student_grade%}
+              <tr>
+                <td>{{course_code}}</td>
+                <td>{{course_title}}</td>
+                <td>{{Credit}}</td>
+                <td>{{Grade}}</td>
+                <td>{{Grade_Point}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            
+          </table>
+          
+          <div class="content__result__summary">
+            <h4>Total Credit Requirement : <span>0</span></h4>
+            <h4>Total Credits Taken : <span>{{count_credit}}</span></h4>
+            <h4>SGPA : <span>{{total_sgpa}}</span></h4>
+          </div>
+        </div>
+      </div>  
+</body>
+</html>
