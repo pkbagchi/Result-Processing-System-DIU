@@ -165,3 +165,7 @@ def results(request):
     }
    
     return render(request, 'result.html', context)
+
+
+def login(request):
+    return render(request, 'login.html')
