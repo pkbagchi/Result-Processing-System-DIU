@@ -1,0 +1,79 @@
+{% include 'base.html' %}
+
+{% block base %}
+<div class="container mt-4">
+    <div class="row">
+      
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <a href="{% url 'result_add' %}"><button type="submit" class="btn btn-success">Add Result</button></a>
+            
+        </div>
+    </div>
+    
+    <form method="POST">
+      {% csrf_token %}
+        <input class="form-control mt-4" name="search" type="text" placeholder=" Type something to search...ex. student id">
+         
+          <button type="submit" name="btn-search" class="btn btn-info mt-2">Search</button>
+        
+      </form>
+
+    <legend class="container-fluid border-bottom mb-3 mt-4">Result List. </legend>
+
+    <table class="table table-bordered" style="text-align: center;" >
+        <thead>
+          <tr class="table-primary">
+            <th>#</th>
+            <th>Student Id</th>
+            <th>Semester</th>
+            <th>SGPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if check %}
+          {% for result in result %}
+          <tr>
+            <td><a class="btn btn-info" href="#" role="button">Details</a></td>
+            <td>{{result.studentId}}</td>
+            <td>{{result.semester}}</td>
+            <td>N/A</td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          {% for result in result %}
+          <tr>
+            <td><a class="btn btn-info" href="{% url 'result_details' result.id %}" role="button">Details</a></td>
+            <td>{{result.studentId}}</td>
+            <td>{{result.semester}}</td>
+            <td>N/A</td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+      <div class="row md-4 mt-2">
+        <div class="col-4">
+            {% if result.has_previous %}
+            <a href="?page={{ objects.previous_page_number }}" class="btn btn-info px-3 ">Page
+                {{ result.previous_page_number }}</a>{%endif%}
+        </div>
+
+
+        <div class="col-4">
+
+        </div>
+
+
+        <div class="col-4">
+            {% if result.has_next %}
+            <a href="?page={{ result.next_page_number }}" class="btn btn-info px-4 float-right">Page
+                {{ result.next_page_number }}</a>{%endif%}
+
+        </div>
+
+
+</div>
+
+
+{% endblock %}

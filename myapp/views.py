@@ -68,9 +68,9 @@ def index(request):
             return redirect('home')
         else:
             stdquery = Student.objects.all().filter(stid__exact = studentid)
-            relquery = Result.objects.all().filter(studentId__stid__exact = studentid, semester__Stsemester__exact = selsem) 
+            relquery = Result.objects.all().filter(studentId__exact = studentid, semester__exact = selsem) 
             sel_semester = selsem
-            if Result.objects.all().filter(studentId__stid__exact = studentid, semester__Stsemester__exact = selsem).count() == 0:
+            if Result.objects.all().filter(studentId__exact = studentid, semester__exact = selsem).count() == 0:
                 messages.warning(request, 'Result not found')
                 return redirect('home')
             else:
@@ -167,5 +167,3 @@ def results(request):
     return render(request, 'result.html', context)
 
 
-def login(request):
-    return render(request, 'login.html')

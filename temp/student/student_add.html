@@ -1,0 +1,145 @@
+{% include 'base.html' %}
+
+{% block base %}
+   
+    <div class="container mt-3">
+        <div class="container">
+            {% include 'message.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                    <h6 class="m-0">Student Information</h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                        <div class="row">
+                            <div class="col">
+                                <form method="POST"> 
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                      <div class="form-group col-md-12">
+                                        <label for="feFirstName">Program<span style="color:#cf000f">
+                                                *</span></label>
+                                        <input type="text" class="form-control" name='program' value="B.Sc. in Computer Science & Engineering" placeholder="B.Sc. in Computer Science & Engineering" readonly> </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="feFirstName">Student Name<span style="color:#cf000f">
+                                                    *</span></label>
+                                            <input type="text" class="form-control" required name='name' placeholder="Name" value="{{request.POST.name}}"> </div>
+                                        <div class=" form-group col-md-6">
+                                            <label for="feLastName">Student Id<span style="color:#cf000f">
+                                                    *</span></label>
+                                            <input type="text" class="form-control" required name='id' placeholder="Id" value="{{request.POST.id}}"> </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="feEmailAddress">Enrollment<span style="color:#cf000f">
+                                                    *</span></label>
+                                                    
+                                                    <select id="" name="enrollment" class="form-control" required value="{{request.POST.enrollment}}"> 
+                                                        <option selected>Choose...</option>
+                                                        {% for enrol in semester %}
+                                                        <option value="{{enrol}}">{{enrol}}</option>
+                                                        {% endfor %}
+                                                    </select> </div>
+                                        <div class="form-group col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="Batch">Batch<span style="color:#cf000f">
+                                                        *</span></label>
+                                                </div>
+                                                
+                                            </div>
+                                            <input type="text" class="form-control" name='batch' placeholder="Ex. 46" required value="{{request.POST.batch}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="feEmailAddress">Email<span style="color:#cf000f">
+                                                    *</span></label>
+                                            <input type="email" class="form-control" required name='email' required value="{{request.POST.email}}"
+                                                placeholder="Email"> </div>
+                                        <div class="form-group col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="Batch">Mobile<span style="color:#cf000f">
+                                                        *</span></label>
+                                                </div>
+                                                
+                                            </div>
+                                            <input type="text" class="form-control" name='mobile' placeholder="Ex. 01XXX-XXXXXX" required value="{{request.POST.mobile}}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="feEmailAddress">Date of Birth<span style="color:#cf000f">
+                                                    *</span></label>
+                                            <input type="date" class="form-control" required name='date' value="{{request.POST.date}}"> </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="Batch">Nationality<span style="color:#cf000f">
+                                                        *</span></label>
+                                                </div>
+                                                
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Bangladeshi" readonly>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="Gender">Gender<span style="color:#cf000f">*</span></label>
+                                            </div>
+                                            
+                                        </div>
+                                        <select id="" name="gender" class="form-control" required> 
+                                                <option selected>Choose...</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                    </div>
+                                        <div class="form-group col-md-2">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Blood_Group<span style="color:#cf000f">*</span></label>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <select name="blood" id="bloodid" class="form-control" required>
+                                                <option selected>Choose...</option>
+                                                <option value="A+">A+</option>
+                                                <option value="B+">B+</option>
+                                                <option value="O+">O+</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="AB-">AB-</option>
+                                            </select>
+                                        </div>
+                                   
+                                    </div>
+                                    
+                                    <button type="submit" name='submit_btn' class="btn btn-success">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    
+    </div>
+{% endblock %}

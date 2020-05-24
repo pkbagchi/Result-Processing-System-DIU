@@ -1,0 +1,86 @@
+{% include 'base.html' %}
+
+{% block base %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <a href="{% url 'student_add' %}"><button type="submit" class="btn btn-success">Add Student</button></a>
+            
+        </div>
+    </div>
+    
+    <form method="POST">
+      {% csrf_token %}
+        <input class="form-control mt-4" name="search" type="text" placeholder=" Type something to search...(student id or name)" value='{{request.POST.search}}'/>
+         
+          <button type="submit" name="btn-search" class="btn btn-info mt-2">Search</button>
+        
+      </form>
+
+    <legend class="container-fluid border-bottom mb-3 mt-4">Student List. </legend>
+
+
+    <table class="table table-bordered" style="text-align: center;">
+        <thead>
+          <tr class="table-primary">
+            <th>#</th>
+            <th>Student Name</th>
+            <th>Student Id</th>
+            <th>Phone No.</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if check %}
+          {% for student in student %}
+          <tr>
+            <td><a class="btn btn-info" href="{% url 'student_details' student.id %}" role="button">Details</a></td>
+            <td>{{student.name}}</td>
+            <td>{{student.stid}}</td>
+            <td>{{student.mobile}}</td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          {% for student in student %}
+          <tr>
+            <td><a class="btn btn-info" href="{% url 'student_details' student.id %}" role="button">Details</a></td>
+             <td>{{student.name}}</td>
+            <td>{{student.stid}}</td>
+            <td>{{student.mobile}}</td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+
+      <div class="row md-4 mt-2">
+        <div class="col-4">
+            {% if student.has_previous %}
+            <a href="?page={{ objects.previous_page_number }}" class="btn btn-info px-3 ">Page
+                {{ student.previous_page_number }}</a>{%endif%}
+        </div>
+
+
+        <div class="col-4">
+
+        </div>
+
+
+        <div class="col-4">
+            {% if student.has_next %}
+            <a href="?page={{ student.next_page_number }}" class="btn btn-info px-4 float-right">Page
+                {{ student.next_page_number }}</a>{%endif%}
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}
+

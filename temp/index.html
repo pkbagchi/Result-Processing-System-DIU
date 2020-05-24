@@ -14,30 +14,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <br>
-    <div class="container">
+    <div class="container mt-3">
       {% include 'message.html' %}
       {% block content %}
       {% endblock %}
     </div>
     <div class="s003">
-     
+      
       <form method="GET">
         {% csrf_token %}
-        <div class="inner-form">
+        
+        <div class="inner-form" style="margin-bottom: 5em;">
           <div class="input-field first-wrap">
             <div class="input-select">
               <select data-trigger="" name="selsemester">
-                <option selected = "true" disabled="disabled">Select Semester</option>
+                <option selected disabled="disabled">Select Semester</option>
                 {% for value in resSem %}
                   <option value="{{value}}">{{value}}</option>
                 {% endfor %}
               </select>
             </div>
           </div>
+          
           <div class="input-field second-wrap">
             <input id="search" name="selstudentid" type="text" placeholder="Enter your Id"/>
           </div>
+          
           <div class="input-field third-wrap">
             
             <button name="btn" class="btn-search" type="submit">
@@ -47,9 +49,12 @@
             </button>
           </div>
         </div>
+      
       </form>
+      
     </div>
-   
+    
+  
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/extention/choices.js' %}"></script>
     <script>
@@ -63,12 +68,26 @@
         itemSelectText: '',
       });
 
-     
       
-    </script
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+   
+    <footer class="fixed-bottom">
+      <div class="container" style="margin-left: 31em;">
+        {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}"><button type="submit" class="btn btn-outline-danger mr-3">Admin Login</button></a> 
+        {% else %}
+        <a href="{% url 'login' %}"><button type="submit" class="btn btn-outline-danger mr-3">Admin Login</button></a> 
+        {% endif %}   
+        <button type="submit" class="btn btn-outline-success">Student Search</button>
+      </div>
+     
+    <br>
+    </footer>
+
+   
+
   </body>
 </html>

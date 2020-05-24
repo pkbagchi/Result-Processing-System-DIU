@@ -1,0 +1,464 @@
+{% include 'base.html' %}
+
+{% block base %}
+
+   <form method="POST">
+    {% csrf_token %}
+    <div class="row">
+       
+    <!-- Student Information Section -->
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-10" style="margin-top: -2em;">
+            <legend class="container-fluid border-bottom mb-3 mt-4">Adding Result.</legend>
+            <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                    <h6 class="m-0">Student Information<span style="color:#cf000f"> *</span></h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                        <div class="row">
+                            <div class="col">
+                                    <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="feFirstName">Student Id<span style="color:#cf000f"> *</span></label>
+                                                <select name="stid" id="bloodid" class="form-control" required>
+                                                    <option selected>Choose...</option>
+                                                    {% for student in student %}
+                                                    <option value="{{student.stid}}">{{student.stid}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        
+                                        
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="feFirstName">Semester<span style="color:#cf000f"> *</span></label>
+                                                <select name="semester" id="bloodid" class="form-control" required>
+                                                    <option selected>Choose...</option>
+                                                    {% for semester in semester %}
+                                                    <option value="{{semester.Stsemester}}">{{semester.Stsemester}}</option>
+                                                    {% endfor %}
+                                                    
+                                                </select>
+                                    </div>
+                                
+
+                                    
+                                
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <!-- Student Information Section End -->
+</div>
+
+
+<div class="row">
+    
+      <!-- First Section -->
+      <div class="col-md-1"></div>
+    
+      <div class="col-md-10">
+          <div class="card card-small mb-4">
+              <div class="card-header border-bottom">
+                  <h6 class="m-0">First Subject<span style="color:#cf000f"> *</span></h6>
+              </div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item p-3">
+                      <div class="row">
+                          <div class="col">
+                                  <div class="form-row">
+                                  <div class="form-group col-md-6">
+                                      <label for="feFirstName">Course Title<span style="color:#cf000f"> *</span></label>
+                                              <select name="course_one_title" id="bloodid" class="form-control" required>
+                                                  <option selected>Choose...</option>
+                                                  {% for course_title in course_title %}
+                                                  <option value="{{course_title}}">{{course_title}}</option>
+                                                  {% endfor %}
+                                              </select>
+                                      
+                                      
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <label for="feFirstName">Course Code<span style="color:#cf000f"> *</span></label>
+                                              <select name="course_one_code" id="bloodid" class="form-control" required>
+                                                  <option selected>Choose...</option>
+                                                  {% for course_code in course_code %}
+                                                  <option value="{{course_code}}">{{course_code}}</option>
+                                                  {% endfor %}
+                                                  
+                                              </select>
+                                  </div>
+                            
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label for="feFirstName">Course Credit<span style="color:#cf000f"> *</span></label>
+                                          <select name="course_one_credit" id="bloodid" class="form-control" required>
+                                              <option selected>Choose...</option>
+                                              {% for course_credit in course_credit %}
+                                                  <option value="{{course_credit}}">{{course_credit}}</option>
+                                                  {% endfor %}
+                                          </select>
+                                  
+                                  
+                              </div>
+                              <div class="form-group col-md-6">
+                                  <label for="feFirstName">Total Number<span style="color:#cf000f"> *</span></label>
+                                          <input type="number" name="course_one_number" class="form-control" required>
+                              </div>
+                        
+                      </div>
+
+                      </div>
+                  </li>
+              </ul>
+
+          </div>
+      </div>
+      
+      <div class="col-md-1"></div>
+      <!-- First Section End -->
+    <!-- Second Section -->
+    <div class="col-md-1"></div>
+    
+    <div class="col-md-10">
+        <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+                <h6 class="m-0">Second Subject<span style="color:#cf000f"> *</span></h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col">
+                                <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="feFirstName">Course Title<span style="color:#cf000f"> *</span></label>
+                                            <select name="course_two_title" id="bloodid" class="form-control" required>
+                                                <option selected>Choose...</option>
+                                                {% for course_title in course_title %}
+                                                <option value="{{course_title}}">{{course_title}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    
+                                    
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="feFirstName">Course Code<span style="color:#cf000f"> *</span></label>
+                                            <select name="course_two_code" id="bloodid" class="form-control" required>
+                                                <option selected>Choose...</option>
+                                                {% for course_code in course_code %}
+                                                  <option value="{{course_code}}">{{course_code}}</option>
+                                                  {% endfor %}
+                                                
+                                            </select>
+                                </div>
+                          
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="feFirstName">Course Credit<span style="color:#cf000f"> *</span></label>
+                                        <select name="course_two_credit" id="bloodid" class="form-control" required>
+                                            <option selected>Choose...</option>
+                                            {% for course_credit in course_credit %}
+                                            <option value="{{course_credit}}">{{course_credit}}</option>
+                                            {% endfor %}
+                                        </select>
+                                
+                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="feFirstName">Total Number<span style="color:#cf000f"> *</span></label>
+                                        <input name="course_two_number" type="number" class="form-control" required>
+                            </div>
+                      
+                    </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <!-- Second Section End -->
+
+
+     <!-- Third Section -->
+     <div class="col-md-1"></div>
+    
+     <div class="col-md-10">
+         <div class="card card-small mb-4">
+             <div class="card-header border-bottom">
+                 <h6 class="m-0">Third Subject<span style="color:#cf000f"> *</span></h6>
+             </div>
+             <ul class="list-group list-group-flush">
+                 <li class="list-group-item p-3">
+                     <div class="row">
+                         <div class="col">
+                                 <div class="form-row">
+                                 <div class="form-group col-md-6">
+                                     <label for="feFirstName">Course Title<span style="color:#cf000f"> *</span></label>
+                                             <select name="course_three_title" id="bloodid" class="form-control" required> 
+                                                 <option selected>Choose...</option>
+                                                 {% for course_title in course_title %}
+                                                 <option value="{{course_title}}">{{course_title}}</option>
+                                                 {% endfor %}
+                                             </select>
+                                     
+                                     
+                                 </div>
+                                 <div class="form-group col-md-6">
+                                     <label for="feFirstName">Course Code<span style="color:#cf000f"> *</span></label>
+                                             <select name="course_three_code" id="bloodid" class="form-control" required>
+                                                 <option selected>Choose...</option>
+                                                 {% for course_code in course_code %}
+                                                  <option value="{{course_code}}">{{course_code}}</option>
+                                                  {% endfor %}
+                                                 
+                                             </select>
+                                 </div>
+                           
+                         </div>
+                         <div class="form-row">
+                             <div class="form-group col-md-6">
+                                 <label for="feFirstName">Course Credit<span style="color:#cf000f"> *</span></label>
+                                         <select name="course_three_credit" id="bloodid" class="form-control" required>
+                                             <option selected>Choose...</option>
+                                             {% for course_credit in course_credit %}
+                                             <option value="{{course_credit}}">{{course_credit}}</option>
+                                             {% endfor %}
+                                         </select>
+                                 
+                                 
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <label for="feFirstName">Total Number<span style="color:#cf000f"> *</span></label>
+                                         <input name="course_three_number" type="number" class="form-control" required>
+                             </div>
+                       
+                     </div>
+
+                     </div>
+                 </li>
+             </ul>
+
+         </div>
+     </div>
+     <div class="col-md-1"></div>
+     <!-- Third Section End -->
+
+      <!-- Four Section -->
+    <div class="col-md-1"></div>
+    
+    <div class="col-md-10">
+        <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+                <h6 class="m-0">Four Subject (Optional)</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col">
+                                <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="feFirstName">Course Title<span style="color:#cf000f"> *</span></label>
+                                            <select name="course_four_title" id="bloodid" class="form-control">
+                                                <option selected>Choose...</option>
+                                                {% for course_title in course_title %}
+                                                <option value="{{course_title}}">{{course_title}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    
+                                    
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="feFirstName">Course Code<span style="color:#cf000f"> *</span></label>
+                                            <select name="course_four_code" id="bloodid" class="form-control">
+                                                <option selected>Choose...</option>
+                                                {% for course_code in course_code %}
+                                                  <option value="{{course_code}}">{{course_code}}</option>
+                                                  {% endfor %}
+                                                
+                                            </select>
+                                </div>
+                          
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="feFirstName">Course Credit<span style="color:#cf000f"> *</span></label>
+                                        <select name="course_four_credit" id="bloodid" class="form-control">
+                                            <option selected>Choose...</option>
+                                            {% for course_credit in course_credit %}
+                                            <option value="{{course_credit}}">{{course_credit}}</option>
+                                            {% endfor %}
+                                        </select>
+                                
+                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="feFirstName">Total Number<span style="color:#cf000f"> *</span></label>
+                                        <input name="course_four_number" type="number" class="form-control">
+                            </div>
+                      
+                    </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <!-- Four Section End -->
+
+     <!-- Five Section -->
+     <div class="col-md-1"></div>
+    
+     <div class="col-md-10">
+         <div class="card card-small mb-4">
+             <div class="card-header border-bottom">
+                 <h6 class="m-0">Fifth Subject (Optional)</h6>
+             </div>
+             <ul class="list-group list-group-flush">
+                 <li class="list-group-item p-3">
+                     <div class="row">
+                         <div class="col">
+                                 <div class="form-row">
+                                 <div class="form-group col-md-6">
+                                     <label for="feFirstName">Course Title<span style="color:#cf000f"> *</span></label>
+                                             <select name="course_five_title" id="bloodid" class="form-control">
+                                                 <option selected>Choose...</option>
+                                                 {% for course_title in course_title %}
+                                                 <option value="{{course_title}}">{{course_title}}</option>
+                                                 {% endfor %}
+                                             </select>
+                                     
+                                     
+                                 </div>
+                                 <div class="form-group col-md-6">
+                                     <label for="feFirstName">Course Code<span style="color:#cf000f"> *</span></label>
+                                             <select name="course_five_code" id="bloodid" class="form-control">
+                                                 <option selected>Choose...</option>
+                                                 {% for course_code in course_code %}
+                                                  <option value="{{course_code}}">{{course_code}}</option>
+                                                  {% endfor %}
+                                                 
+                                             </select>
+                                 </div>
+                           
+                         </div>
+                         <div class="form-row">
+                             <div class="form-group col-md-6">
+                                 <label for="feFirstName">Course Credit<span style="color:#cf000f"> *</span></label>
+                                         <select name="course_five_credit" id="bloodid" class="form-control">
+                                             <option selected>Choose...</option>
+                                             {% for course_credit in course_credit %}
+                                                  <option value="{{course_credit}}">{{course_credit}}</option>
+                                                  {% endfor %}
+                                         </select>
+                                 
+                                 
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <label for="feFirstName">Total Number<span style="color:#cf000f"> *</span></label>
+                                         <input name="course_five_number" type="number" class="form-control">
+                             </div>
+                       
+                     </div>
+
+                     </div>
+                 </li>
+             </ul>
+
+         </div>
+     </div>
+     <div class="col-md-1"></div>
+     <!-- Five Section End -->
+
+      <!-- Six Section -->
+    <div class="col-md-1"></div>
+    
+    <div class="col-md-10">
+        <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+                <h6 class="m-0">Sixth Subject (Optional)</h6>
+                
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col">
+                                <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="feFirstName">Course Title<span style="color:#cf000f"> *</span></label>
+                                            <select name="course_six_title" id="bloodid" class="form-control">
+                                                <option selected>Choose...</option>
+                                                {% for course_title in course_title %}
+                                                <option value="{{course_title}}">{{course_title}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    
+                                    
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="feFirstName">Course Code<span style="color:#cf000f"> *</span></label>
+                                            <select name="course_six_code" id="bloodid" class="form-control">
+                                                <option selected>Choose...</option>
+                                                {% for course_code in course_code %}
+                                                  <option value="{{course_code}}">{{course_code}}</option>
+                                                  {% endfor %}
+                                                
+                                            </select>
+                                </div>
+                          
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="feFirstName">Course Credit<span style="color:#cf000f"> *</span></label>
+                                        <select name="course_six_credit" id="bloodid" class="form-control">
+                                            <option selected>Choose...</option>
+                                            {% for course_credit in course_credit %}
+                                                  <option value="{{course_credit}}">{{course_credit}}</option>
+                                                  {% endfor %}
+                                        </select>
+                                
+                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                
+                                <label for="feFirstName">Total Number<span style="color:#cf000f"> *</span></label>
+                                        <input name="course_six_number" type="number" class="form-control">
+                            </div>
+                      
+                    </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <button type="submit" name="btn-result" class="btn btn-success mb-4">Submiit</button>
+    </div>
+    
+    <div class="col-md-1"></div>
+    <!-- Six Section End -->
+    
+
+
+</div>
+
+
+   </form>
+
+
+
+
+</div>
+
+
+{% endblock %}

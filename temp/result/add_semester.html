@@ -1,0 +1,44 @@
+{% include 'base.html' %}
+
+{% block base %}
+<div class="container mt-4">
+    
+    
+    <form method="POST">
+      {% csrf_token %}
+      <select id="" name="semester" class="form-control" required> 
+        <option selected>Choose...</option>
+        {% for enroll in enrollment %}
+        <option value="{{enroll}}">{{enroll}}</option>
+     
+        {% endfor %}
+    </select>
+         
+          <button type="submit" name="btn-semester" class="btn btn-info mt-2">Add Semester</button>
+        
+      </form>
+
+    <legend class="container-fluid border-bottom mb-3 mt-4">Semester List. </legend>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr class="table-primary">
+            <th>Semester Name</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for semester in semester %}
+          <tr>
+            <td>{{semester}}</td>
+            
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+      </table>
+</div>
+
+
+{% endblock %}
