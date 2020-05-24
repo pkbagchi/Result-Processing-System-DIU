@@ -29,7 +29,13 @@ semester.append('Spring 2021')
 semester.append('Summer 2021')
 semester.append('Fall 2021')
 
+semester.append('Spring 2022')
+semester.append('Summer 2022')
+semester.append('Fall 2022')
 
+semester.append('Spring 2023')
+semester.append('Summer 2023')
+semester.append('Fall 2023')
 
 course_title = []
 
