@@ -12,6 +12,4 @@ urlpatterns = [
     path('semester/', views.add_semester, name='semester'),
     path('student/<int:id>', views.student_details, name='student_details'),
     path('result/<int:id>', views.result_details, name='result_details'),
-     path('error/', views.error_page, name='error'),
 ]
-handler404 = views.handler404

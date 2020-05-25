@@ -342,8 +342,3 @@ def result_details(request, id):
 
     return render(request, 'result/result_details.html', context)
 
-def error_page(request):
-    return render(request,'404.html')
-
-def handler404(request,Exception):
-    return render(request, '404.html', status=404)
