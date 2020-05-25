@@ -248,9 +248,9 @@ def student_details(request, id):
     if request.method == 'POST' and 'submit_btn' in request.POST:
         student.program = request.POST.get('program').strip()
         student.name = request.POST.get('name').strip()
-        student.stid = request.POST.get('id').strip()
+        # student.stid = request.POST.get('id').strip()
         student.enrollment = request.POST.get('enrollment').strip()
-        student.batch = request.POST.get('batch').strip()
+        # student.batch = request.POST.get('batch').strip()
         student.email = request.POST.get('email').strip()
         student.mobile = request.POST.get('mobile').strip()
         student.gender = request.POST.get('gender').strip()
