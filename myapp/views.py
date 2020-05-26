@@ -29,7 +29,7 @@ def index(request):
             return 'A+', 4.00
         elif  result < 80 and result >= 75:
             return 'A', 3.75
-        elif  result < 74 and result >= 70:
+        elif  result < 75 and result >= 70:
             return 'A-', 3.50
         elif  result < 70 and result >= 65:
             return 'B+', 3.25
