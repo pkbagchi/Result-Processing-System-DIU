@@ -4,7 +4,7 @@
 
 **Step - 1** : Install all the requirements necessary for this project using below command
                   
-               pip3 install django==2.2
+              pip3 install django==2.2
  
  **Step - 2** : To make project run in your local machine
               
