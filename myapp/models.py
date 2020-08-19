@@ -67,5 +67,5 @@ class Result(models.Model):
     Course_Six_Credit = models.CharField(max_length=5,blank=True,null=True)
     Course_Six_TotalNum = models.IntegerField(blank=True,null=True)
 
-     def __str__(self):
-        return f"{self.studentId} ({self.semester})"
+    def __str__(self):
+       return f"{self.studentId} ({self.semester})"
